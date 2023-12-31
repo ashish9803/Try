@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cute New Year Date Invitation</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f7f0f5;
+    }
+
+    div {
+      text-align: center;
+    }
+
+    h1 {
+      color: #e84393;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    #yesButton,
+    #noButton,
+    #yesButtonNew,
+    #noButtonNew,
+    #yesButtonDate {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #noButton,
+    #noButtonNew {
+      position: absolute;
+    }
+
+    #gifSpace {
+      margin-top: 20px;
+    }
+
+    /* New Page Styles */
+    #newPage,
+    #datePage {
+      display: none;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    #newContent,
+    #dateContent {
+      margin-top: 50px;
+    }
+
+    .checkbox-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .checkbox {
+      margin: 10px;
+      transform: scale(1.5);
+    }
+
+    @media (max-width: 600px) {
+      .checkbox {
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="originalContent">
+    <h1>Do you want to go on a New Year date with me Bobu?</h1>
+
+    <button id="yesButton" onclick="redirectToNewPage()">Yes</button>
+    <button id="noButton" onclick="moveNoButton()">No</button>
+  </div>
+
+  <div id="gifSpace">
+    <!-- Your GIF goes here -->
+    <img src="newYear.gif" alt="New Year GIF" style="width: 300px; max-width: 100%;">
+  </div>
+
+  <div id="newPage">
+    <div id="newContent">
+      <h1>Do you agree to love me three times more than the previous year?</h1>
+
+      <button id="yesButtonNew" onclick="redirectToDatePage()">Yes</button>
+      <button id="noButtonNew" onclick="moveNoButtonNew()">No</button>
+    </div>
+  </div>
+
+  <div id="datePage">
+    <div id="dateContent">
+      <h1>On which date should we go:</h1>
+
+      <div class="checkbox-container">
+        <input type="checkbox" id="cafeCheckbox" class="checkbox">
+        <label for="cafeCheckbox">Cafe Date</label>
+
+        <input type="checkbox" id="movieCheckbox" class="checkbox">
+        <label for="movieCheckbox">Movie Date</label>
+
+        <input type="checkbox" id="parkCheckbox" class="checkbox">
+        <label for="parkCheckbox">Park Date</label>
+      </div>
+
+      <button id="yesButtonDate" onclick="alert('Wohoooooooo Bobu Kumari')">Lets go</button>
+    </div>
+  </div>
+
+  <script>
+    function redirectToNewPage() {
+      // Hide the original content
+      document.getElementById('originalContent').style.display = 'none';
+      
+      // Display the new content
+      document.getElementById('newPage').style.display = 'block';
+
+      // Scroll to the new content
+      document.getElementById('newPage').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function redirectToDatePage() {
+      // Hide the previous content
+      document.getElementById('newPage').style.display = 'none';
+
+      // Display the date content
+      document.getElementById('datePage').style.display = 'block';
+
+      // Scroll to the date content
+      document.getElementById('datePage').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function moveNoButton() {
+      // Get the window dimensions
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+
+      // Calculate a random position for the "No" button
+      const newLeft = Math.floor(Math.random() * (windowWidth - 100));
+      const newTop = Math.floor(Math.random() * (windowHeight - 30));
+
+      // Set the new position
+      document.getElementById('noButton').style.left = newLeft + 'px';
+      document.getElementById('noButton').style.top = newTop + 'px';
+    }
+
+    function moveNoButtonNew() {
+      // Get the window dimensions
+      const windowWidth = window.innerWidth;
+      const windowHeight = window.innerHeight;
+
+      // Calculate a random position for the "No" button on the new page
+      const newLeft = Math.floor(Math.random() * (windowWidth - 100));
+      const newTop = Math.floor(Math.random() * (windowHeight - 30));
+
+      // Set the new position
+      document.getElementById('noButtonNew').style.left = newLeft + 'px';
+      document.getElementById('noButtonNew').style.top = newTop + 'px';
+    }
+  </script>
+
+</body>
+</html>
